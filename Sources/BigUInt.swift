@@ -30,6 +30,10 @@ public struct BigUInt: UnsignedInteger {
     internal fileprivate (set) var kind: Kind // Internal for testing only
     internal fileprivate (set) var storage: [Word] // Internal for testing only; stored separately to prevent COW copies
 
+    public var storagePointer: [Word] {
+        self.storage
+    }
+    
     /// Initializes a new BigUInt with value 0.
     public init() {
         self.kind = .inline(0, 0)
